@@ -1,0 +1,42 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" name="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">Ultra Reddit Clone</a>
+        </div>
+
+    </div>
+</nav>
+
+
+<div ng-repeat="post in posts">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="media">
+                <div class="media-left">
+                    <img class="media-object" ng-src={{post.image_url}} />
+                </div>
+                <div class="media-body">
+                    <h3 class="media-heading">{{post.title}} | <a class="glyphicon glyphicon-arrow-up" aria-hidden="true" ng-click="upvote(post)"></a> <a class="glyphicon glyphicon-arrow-down" aria-hidden="true" ng-click="downvote(post)"></a> <span ng-class="votes(post)"> {{post.votes}} </span>
+          </h3>
+                    <p>{{post.description | limitTo:200}}...</p>
+                    <a href="#/{{post.id}}">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-footer">
+            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+            <p class="dateStyle" name="date"> {{post.created_at | date }}</p>
+            <div class="pull-right">By; {{post.author}}</div>
+
+        </div>
+
+    </div>
+
+</div>
