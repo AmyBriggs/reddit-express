@@ -1,17 +1,66 @@
 <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <!-- <button type="button" name="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> -->
-                <!-- <span class="sr-only">Toggle navigation</span> -->
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand">Ultra Reddit Clone</a>
-        </div>
-
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand">My Ultra Reddit Clone</a>
     </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="" ng-click="postForm = !postForm"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Write A Post </a></li>
+        <li><a href="#/signup">Sign Up</a></li>
+        <li><a href="#/login">Log In</a></li>
+        <li><a href="#/logout">Log Out</a></li>
+        <li><label for="sort">Sort By:</label>
+          <select class="dropdown" ng-model="sort" name="sort">
+            <option value="-votes">Votes</option>
+            <option value="-date">Date</option>
+            <option value="title">Title</option>
+          </select>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left pull-right">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" ng-model="search">
+        </div>
+      </form>
+    </div>
+  </div>
 </nav>
+
+<!-- Form for make post -->
+
+<form ng-show="postForm" name="newPost" ng-submit="submitPost(newPost.$valid)">
+  <div class="form-group"ng-class="{'has-error' : newPost.title.$invalid && !newPost.title.$pristine, 'has-success' : newPost.title.$valid}">
+    <a><label class="control-label" for="title">Title:</label></a>
+      <input type="text" name="title" class="form-control" ng-model="post.title" ng-minlength="3" ng-maxlength="30" ng-required="true" placeholder="Title">
+      <small ng-show="newPost.title.$error.minlength" class="help-block">Minimum of 3 characters.</small>
+      <small ng-show="newPost.title.$error.maxlength" class="help-block">Maximum of 30 characters.</small>
+  </div>
+  <div class="form-group"ng-class="{'has-error' : newPost.author.$invalid && !newPost.author.$pristine, 'has-success' : newPost.author.$valid}">
+    <a><label class="control-label" for="author">Author:</label></a>
+      <input type="text" name="author" class="form-control" ng-model="post.author" ng-minlength="3" ng-maxlength="30" ng-required="true" placeholder="Author">
+      <small ng-show="newPost.author.$error.minlength" class="help-block">Minimum of 3 characters.</small>
+      <small ng-show="newPost.author.$error.maxlength" class="help-block">Maximum of 30 characters.</small>
+  </div>
+  <div class="form-group"ng-class="{'has-error' : newPost.image_url.$invalid && !newPost.image_url.$pristine, 'has-success' : newPost.image_url.$valid}">
+    <a><label class="control-label" for="image_url">Image URL:</label></a>
+      <input type="url" name="image_url" class="form-control" ng-model="post.image_url" ng-required="true" placeholder="Image url">
+      <small ng-show="newPost.image_url.$invalid && !newPost.image_url.$pristine" class="help-block">Image URL is invalid.</small>
+  </div>
+  <div class="form-group"ng-class="{'has-error' : newPost.description.$invalid && !newPost.description.$pristine, 'has-success' : newPost.description.$valid}">
+    <a><label class="control-label" for="description">Description:</label></a>
+      <input type="text" name="description" class="form-control" ng-model="post.description" ng-minlength="3" ng-maxlength="2000" ng-required="true" placeholder="Description">
+      <small ng-show="newPost.description.$error.minlength" class="help-block">Minimum of 3 characters.</small>
+      <small ng-show="newPost.description.$error.maxlength" class="help-block">Maximum of 30 characters.</small>
+  </div>
+  <button type="submit" class="btn btn-default" ng-disabled="newPost.$invalid" ng-click="postForm=false">Submit</button>
+</form>
+
 
 <p class="error">{{error}}</p>
 
@@ -28,7 +77,7 @@
                     <p>{{post.description}}</p>
                     <!-- <a href="#/{{post.id}}">Read More</a> -->
                     <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                    <p class="dateStyle" name="date"> {{post.created_at | date }}  By:  {{post.author}}</p>
+                    <p class="dateStyle" name="date"> {{post.created_at | date }} By: {{post.author}}</p>
 
                 </div>
             </div>
@@ -41,6 +90,6 @@
 
         </div> -->
 
-    <!-- </div> -->
+        <!-- </div> -->
 
-</div>
+    </div>
