@@ -9,8 +9,8 @@ app.controller('SignupController', function($scope, UserService, $location) {
     })
   }
 
-  $scope.submitLogin = function(regularUser){
-    UserService.login.save(regularUser, function (returningUserInfo){
+  $scope.submitLogin = function(regUser){
+    UserService.login.save(regUser, function (regUserInfo){
       $location.url('/')
     })
   }
