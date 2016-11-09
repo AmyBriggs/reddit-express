@@ -43,7 +43,8 @@ router.put('/:id', function(req, res, next){
       let error = {
         message: 'Please log in.'
       }
-    } res.json(error)
+      res.json(error)
+    }
   })
 })
 

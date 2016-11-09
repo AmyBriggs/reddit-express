@@ -4,23 +4,24 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/reddit_express'
+    connection: 'postgres://localhost/reddit_express',
+    migrations: {
+      directory: './server/db/migrations'
+    },
+    seeds: {
+      directory: './server/db/seeds'
+    }
   },
 
 
   production: {
     client: 'pg',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
+    connection: process.env.DATABASE_URL,
     migrations: {
-      tableName: 'knex_migrations'
+      directory: './server/db/migrations'
+    },
+    seeds: {
+      directory: './server/db/seeds'
     }
   }
 
