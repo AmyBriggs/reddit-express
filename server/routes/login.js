@@ -9,8 +9,10 @@ router.post('/', function(req, res, next){
     .first()
     .then(function(user){
       if(user) {
-        let hashedPassword = bcrypt.compareSync(req.body.password, user.password)
-        if(hashedPassword === true){
+        let passwordMatch = bcrypt.compareSync(req.body.password, user.password)
+
+        if(passwordMatch === false){
+          console.log(user);
           res.json(user)
         } else {
           let error = {
