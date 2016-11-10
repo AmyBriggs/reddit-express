@@ -1,4 +1,12 @@
-var app = angular.module("redditExpress", ['ngRoute', 'ngAnimate', 'ngResource'])
+var app = angular.module("redditExpress", ['ngAnimate', 'ngRoute', 'ngResource', 'ngCookies'])
+
+app.config(function($httpProvider){
+  $httpProvider.defaults.withCredentials = true
+})
+
+app.config(['$resourceProvider', function($resourceProvider) {
+  $resourceProvider.defaults.stripTrailingSlashes = false
+}])
 
 app.config(function($routeProvider){
   $routeProvider
@@ -9,7 +17,7 @@ app.config(function($routeProvider){
 
     .when('/logout', {
       templateUrl: '../views/logout.html',
-      controller: 'LogOutController'
+      controller: 'LogoutController'
     })
 
     .when('/login', {

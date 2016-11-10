@@ -1,0 +1,48 @@
+<nav class="navbar navbar-default navbar-fixed top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/#/" class="navbar-brand">My Ultra Reddit Clone</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#/signup">Sign Up</a></li>
+        <li><a href="#/login">Log In</a></li>
+        <li><a href="#/logout">Log Out</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<h1>Edit Comment!</h1>
+
+<p class="error">{{error}}</p>
+
+<form name="editCommentForm" ng-submit="submitEditedComment(editedComment)">
+
+  <div class="form-group" ng-class="{'has-error' : editCommentForm.author.$invalid && !editCommentForm.author.$pristine, 'has-success' : editCommentForm.author.$valid }">
+    <label class="control-label" for="author">Author:</label>
+    <input type="text" name="author" class="form-control" ng-model="editPost.author" ng-minlength="3" ng-maxlength="30" ng-required="true" placeholder="Author">
+    <small ng-show="editPostForm.author.$error.minlength" class="help-block">Minimum 3 characters.</small>
+    <small ng-show="editPostForm.author.$error.maxlength" class="help-block">Maximum 3 characters.</small>
+  </div>
+  <div class="form-group" ng-class="{'has-error' : editPostForm.content.$invalid && !editPostForm.content.$pristine, 'has-success' : editPostForm.content.$valid }">
+    <label class="control-label" for="content">Comment:</label>
+    <input type="text" name="content" class="form-control" ng-model="editPost.content" ng-minlength="3" ng-maxlength="200" ng-required="true" placeholder="Comment">
+    <small ng-show="editPostForm.content.$error.minlength" class="help-block">Minimum 3 characters.</small>
+    <small ng-show="editPostForm.content.$error.maxlength" class="help-block">Maximum 3 characters.</small>
+  </div>
+  <div>
+    <input hidden ng-model="editedComment.posts_id" value="{{post.id}}">
+  </div>
+
+  <button type="submit" class="btn btn-default" ng-disabled="editCommentForm.$invalid">Submit</button>
+
+</form>
+
+<button type="button" class="btn btn-default" ng-click="cancelComment()">Cancel</button>

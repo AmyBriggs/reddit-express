@@ -12,6 +12,27 @@ app.service("PostService", function($resource) {
         method:'POST',
         isArray:true
       }
+    }),
+
+    comments: $resource('comments/:id', {id: '@id'}, {
+      'update': {
+        method: 'PUT'
+      },
+      'get': {
+        method: 'GET',
+        isArray:false
+      },
+      'save': {
+        method: 'POST',
+        isArray:true
+      }
+    }),
+
+    postComment: $resource('comments/bypost/:id', {id: '@id'}, {
+      'get': {
+        method: 'GET',
+        isArray:true
+      }
     })
   }
 })

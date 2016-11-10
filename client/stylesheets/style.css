@@ -1,13 +1,46 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Special Elite', cursive;
+  background-color: lightgrey;
 }
 
 a {
-  color: #00B7FF;
+  color: #0A0E4D;
 }
 
 img {
   height: 20em;
   width: auto;
+}
+
+.navbar-fixed-top {
+  background-color: #0A0E4D;
+}
+
+#logo {
+  color: silver;
+  font-weight: lighter;
+}
+
+#title {
+  color: silver;
+}
+
+#signup {
+  color: silver;
+}
+
+#login {
+  color: silver;
+}
+
+#logout {
+  color: silver;
+}
+
+#sort {
+  color: silver;
+  margin-top: 18px;
+  margin-left: 2px;
 }
