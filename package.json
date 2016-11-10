@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "knex": "knex",
-    "nodemon": "nodemon ./server/app.js",
-    "start": "node ./server/bin/www"
+    "start": "node server/bin/www"
   },
   "engines": {
     "node": "6.6.0"
