@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "knex": "knex",
-    "start": "node /server/bin/www"
+    "start": "node ./server/bin/www"
   },
   "engines": {
     "node": "6.6.0"
