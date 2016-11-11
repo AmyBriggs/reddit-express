@@ -9,6 +9,10 @@ a {
   color: #0A0E4D;
 }
 
+li a {
+  color: silver;
+}
+
 img {
   height: 20em;
   width: auto;
@@ -18,9 +22,17 @@ img {
   background-color: #0A0E4D;
 }
 
+.navbar-brand {
+  color: silver;
+}
+
 #logo {
   color: silver;
   font-weight: lighter;
+}
+
+#login-logo {
+  color: silver;
 }
 
 #title {

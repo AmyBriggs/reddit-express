@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" id="logo" >My Ultra Reddit Clone</a>
+      <a class="navbar-brand" style="color: silver" id="logo" >My Ultra Reddit Clone</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
@@ -75,21 +75,15 @@
                     <h3 class="media-heading"><a href="#/{{post.id}}">{{post.title}}</a> | <a class="glyphicon glyphicon-arrow-up" aria-hidden="true" ng-click="upvote(post)"></a> <a class="glyphicon glyphicon-arrow-down" aria-hidden="true" ng-click="downvote(post)"></a> <span ng-class="votes(post)"> {{post.votes}} </span>
           </h3>
                     <p>{{post.description}}</p>
-                    <!-- <a href="#/{{post.id}}">Read More</a> -->
-                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                    <p class="dateStyle" name="date"> {{post.created_at | date }} By: {{post.author}}</p>
+                    <a href="#/{{post.id}}">Read More</a><br><br>
+                    <!-- <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                    <p class="dateStyle" name="date"> {{post.created_at | date }} By: {{post.author}}</p> -->
+                    <i class="glyphicon glyphicon-calendar" aria-hidden="true"></i>&nbsp; {{ post.created_at | date }}&nbsp; By: {{post.author}}
 
                 </div>
             </div>
         </div>
 
-        <!-- <div class="panel-footer">
-            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-            <p class="dateStyle" name="date"> {{post.created_at | date }}</p>
-            <div class="pull-right">By: {{post.author}}</div>
 
-        </div> -->
-
-        <!-- </div> -->
 
     </div>
